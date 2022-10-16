@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 布局窗口宽度等于视觉窗口宽度 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Title</title>
+    <!-- 当前页面样式 -->
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+    <!-- 主体 -->
+    <div id="app" v-cloak>
+        <div class="fit">
+            <!-- Tab选项 -->
+            <div class="tab-framework"  >
+                <div class="tab"
+                     v-for="(item, index) in tabArray"
+                     :class="item.isActive ? activeClass : ''"
+                     @click="activeTab(index)">{{item.name}}
+                </div>
+            </div>
+
+            <!-- 信息轮播展示 -->
+            <div class="img-framework" @mouseenter="onMouseOver" @mouseleave="onMouseOut">
+                <img src="images/bg-img/bg_02.png">
+                <div class="prev" @click="getPrevBannerIndex">
+                    <img src="./images/btn-img/btn-prev.png">
+                </div>
+                <div class="next" @click="getNextBannerIndex">
+                    <img src="./images/btn-img/btn-next.png">
+                </div>
+                <div class="current" v-for="(item, index) in contentArray" v-show="index === activeTabIndex">
+                    <img :src = "item.bannerList[bannerIndex] ? item.bannerList[bannerIndex].img : ''" >
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 公用js -->
+    <script src="js/public/vue.js"></script>
+
+    <!-- 当前页面js -->
+    <script src="js/index.js"></script>
+</body>
+</html>
