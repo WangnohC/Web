@@ -7,31 +7,31 @@
     <title>Title</title>
     <!-- 当前页面样式 -->
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script src="../../github/Web/swiperdemo/js/index.js"></script>
 </head>
 <body>
     <!-- 主体 -->
     <div id="app" v-cloak>
-        <div class="fit">
+        <div class="adapter">
             <!-- Tab选项 -->
             <div class="tab-framework"  >
-                <div class="tab"
-                     v-for="(item, index) in tabArray"
-                     :class="item.isActive ? activeClass : ''"
+                <div v-for="(item, index) in tabArray"
+                     :class="item.active ? 'active-tab' : 'inactive-tab'"
                      @click="activeTab(index)">{{item.name}}
                 </div>
             </div>
 
             <!-- 信息轮播展示 -->
-            <div class="img-framework" @mouseenter="onMouseOver" @mouseleave="onMouseOut">
+            <div class="img-framework" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
                 <img src="images/bg-img/bg_02.png">
-                <div class="prev" @click="getPrevBannerIndex">
+                <div class="prev" @click="getPrevBanner">
                     <img src="./images/btn-img/btn-prev.png">
                 </div>
-                <div class="next" @click="getNextBannerIndex">
+                <div class="next" @click="getNextBanner">
                     <img src="./images/btn-img/btn-next.png">
                 </div>
-                <div class="current" v-for="(item, index) in contentArray" v-show="index === activeTabIndex">
-                    <img :src = "item.bannerList[bannerIndex] ? item.bannerList[bannerIndex].img : ''" >
+                <div class="current">
+                    <img :src = "contentArray[activeTabIndex].bannerList[bannerIndex].image" >
                 </div>
             </div>
         </div>

@@ -3,92 +3,51 @@ const vue = new Vue({
     data: {
         tabArray: [ // tab标签
             {
-                name: "ID. 系列",
-                isActive: true
+                name: "SUV",
+                active: false
             },
             {
-                name: "SUV系列",
-                isActive: false
-            },
-            {
-                name: "轿车系列",
-                isActive: false
+                name: "轿车",
+                active: false
             }
         ],
-        activeClass: "active",
         activeTabIndex: 0,
         contentArray: [ // tab标签下所展示的内容
             {
                 bannerList: [
                     {
-                        img: "./images/policy-img/policy_01.png",
-                        name: "ID.4 CORZZ"
+                        name: "全新探岳",
+                        image: "./images/policy-img/policy_01.png"
                     },
                     {
-                        img: "./images/policy-img/policy_02.png",
-                        name: "ID.6 CORZZ"
+                        name: "全新探岳X",
+                        image: "./images/policy-img/policy_02.png"
                     },
                     {
-                        img: "./images/policy-img/policy_03.png",
-                        name: "ID.纯享版"
+                        name: "全新探岳GTE",
+                        image: "./images/policy-img/policy_03.png"
                     }
                 ]
             },
             {
                 bannerList: [
                     {
-                        img: "./images/policy-img/policy_05.png",
-                        name: "全新探岳"
+                        name: "全新速腾",
+                        image: "./images/policy-img/policy_04.png"
                     },
                     {
-                        img: "./images/policy-img/policy_06.png",
-                        name: "全新探岳X"
+                        name: "全新宝来",
+                        image: "./images/policy-img/policy_05.png"
                     },
                     {
-                        img: "./images/policy-img/policy_07.png",
-                        name: "全新探岳GTE"
-                    },
-                    {
-                        img: "./images/policy-img/policy_04.png",
-                        name: "揽境Talagon"
-                    },
-                    {
-                        img: "./images/policy-img/policy_08.png",
-                        name: "探歌"
-                    },
-                    {
-                        img: "./images/policy-img/policy_09.png",
-                        name: "探影"
-                    }
-                ]
-            },
-            {
-                bannerList: [
-                    {
-                        img: "./images/policy-img/policy_12.png",
-                        name: "全新速腾"
-                    },
-                    {
-                        img: "./images/policy-img/policy_13.png",
-                        name: "全新宝来"
-                    },
-                    {
-                        img: "./images/policy-img/policy_10.png",
-                        name: "迈腾"
-                    },
-                    {
-                        img: "./images/policy-img/policy_11.png",
-                        name: "迈腾GTE"
-                    },
-                    {
-                        img: "./images/policy-img/policy_14.png",
-                        name: "全新数字高尔夫"
+                        name: "全新数字高尔夫",
+                        image: "./images/policy-img/policy_06.png"
                     }
                 ]
             }
         ],
         bannerIndex: 0,
-        taskId: ""
+        scheduledTaskId: ""
     },
     mounted() {
         this.activeTab(0);
@@ -97,23 +56,23 @@ const vue = new Vue({
         // 激活tab
         activeTab(index) {
             this.bannerIndex = 0;
-            this.tabArray[this.activeTabIndex].isActive = false;
-            this.tabArray[index].isActive = true;
+            this.tabArray[this.activeTabIndex].active = false;
+            this.tabArray[index].active = true;
             this.activeTabIndex = index;
-            if (this.taskId) {
-                clearInterval(this.taskId);
+            if (this.scheduledTaskId) {
+                clearInterval(this.scheduledTaskId);
             }
-            this.taskId = setInterval(this.getNextBannerIndex, 5000, false);
+            this.scheduledTaskId = setInterval(this.getNextBanner, 3000);
         },
-        // 获取前一个轮播页的id
-        getPrevBannerIndex() {
+        // 获取上一个轮播页
+        getPrevBanner() {
             this.bannerIndex--;
             if (this.bannerIndex < 0) {
                 this.bannerIndex = this.contentArray[this.activeTabIndex].bannerList.length - 1;
             }
         },
-        // 获取后一个轮播页的id
-        getNextBannerIndex() {
+        // 获取下一个轮播页
+        getNextBanner() {
             this.bannerIndex++;
             let length = this.contentArray[this.activeTabIndex].bannerList.length;
             if (this.bannerIndex >= length) {
@@ -121,14 +80,14 @@ const vue = new Vue({
             }
         },
         // 鼠标移入
-        onMouseOver() {
-            if (this.taskId) {
-                clearInterval(this.taskId);
+        onMouseEnter() {
+            if (this.scheduledTaskId) {
+                clearInterval(this.scheduledTaskId);
             }
         },
         // 鼠标移出
-        onMouseOut() {
-            this.taskId = setInterval(this.getNextBannerIndex, 5000, this.activeTabIndex);
+        onMouseLeave() {
+            this.scheduledTaskId = setInterval(this.getNextBanner, 3000);
         }
     }
 });

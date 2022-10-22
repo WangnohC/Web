@@ -1,13 +1,14 @@
-.fit {
+.adapter {
     position: relative;
 }
 @media screen and (max-width: 750px) {
-    .fit {
+    .adapter {
         left: 50%;
         transform: translateX(-50%);
         width: 150%;
     }
 }
+
 .tab-framework {
     display: flex;
     width: 100%;
@@ -18,7 +19,7 @@
     -o-background-size: cover;
     justify-content: center;
 }
-.tab-framework .tab {
+.tab-framework .inactive-tab {
     display: inline-block;
     margin-inline: 15px;
     width: 20%;
@@ -32,17 +33,31 @@
     -o-background-size: cover;
 }
 @media screen and (max-width: 750px) {
-    .tab-framework .tab {
+    .tab-framework .inactive-tab {
         margin-inline: 5px;
         line-height: 240%;
     }
 }
-.tab-framework .active {
+.tab-framework .active-tab {
+    display: inline-block;
+    margin-inline: 15px;
+    width: 20%;
+    height: 100%;
+    font-size: 2.5vw;
+    line-height: 200%;
+    text-align: center;
     background: url(../images/tab-img/tab-activated.png) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
 }
+@media screen and (max-width: 750px) {
+    .tab-framework .active-tab {
+        margin-inline: 5px;
+        line-height: 240%;
+    }
+}
+
 .img-framework {
     position: relative;
 }
