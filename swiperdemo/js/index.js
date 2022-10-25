@@ -17,15 +17,15 @@ const vue = new Vue({
                 bannerList: [
                     {
                         name: "全新探岳",
-                        image: "./images/policy-img/policy_01.png"
+                        image: "./images/banner/banner_01.png"
                     },
                     {
                         name: "全新探岳X",
-                        image: "./images/policy-img/policy_02.png"
+                        image: "./images/banner/banner_02.png"
                     },
                     {
                         name: "全新探岳GTE",
-                        image: "./images/policy-img/policy_03.png"
+                        image: "./images/banner/banner_03.png"
                     }
                 ]
             },
@@ -33,15 +33,15 @@ const vue = new Vue({
                 bannerList: [
                     {
                         name: "全新速腾",
-                        image: "./images/policy-img/policy_04.png"
+                        image: "./images/banner/banner_04.png"
                     },
                     {
                         name: "全新宝来",
-                        image: "./images/policy-img/policy_05.png"
+                        image: "./images/banner/banner_05.png"
                     },
                     {
                         name: "全新数字高尔夫",
-                        image: "./images/policy-img/policy_06.png"
+                        image: "./images/banner/banner_06.png"
                     }
                 ]
             }
