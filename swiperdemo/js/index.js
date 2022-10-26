@@ -17,15 +17,15 @@ const vue = new Vue({
                 bannerList: [
                     {
                         name: "全新探岳",
-                        image: "./images/banner/banner_01.png"
+                        image: "img/banner/banner_01.png"
                     },
                     {
                         name: "全新探岳X",
-                        image: "./images/banner/banner_02.png"
+                        image: "img/banner/banner_02.png"
                     },
                     {
                         name: "全新探岳GTE",
-                        image: "./images/banner/banner_03.png"
+                        image: "img/banner/banner_03.png"
                     }
                 ]
             },
@@ -33,21 +33,22 @@ const vue = new Vue({
                 bannerList: [
                     {
                         name: "全新速腾",
-                        image: "./images/banner/banner_04.png"
+                        image: "img/banner/banner_04.png"
                     },
                     {
                         name: "全新宝来",
-                        image: "./images/banner/banner_05.png"
+                        image: "img/banner/banner_05.png"
                     },
                     {
                         name: "全新数字高尔夫",
-                        image: "./images/banner/banner_06.png"
+                        image: "img/banner/banner_06.png"
                     }
                 ]
             }
         ],
         bannerIndex: 0,
-        scheduledTaskId: ""
+        scheduledTaskId: "",
+        timeout: 3000
     },
     mounted() {
         this.activeTab(0);
@@ -62,7 +63,7 @@ const vue = new Vue({
             if (this.scheduledTaskId) {
                 clearInterval(this.scheduledTaskId);
             }
-            this.scheduledTaskId = setInterval(this.getNextBanner, 3000);
+            this.scheduledTaskId = setInterval(this.getNextBanner, this.timeout);
         },
         // 获取上一个轮播页
         getPrevBanner() {
@@ -87,7 +88,7 @@ const vue = new Vue({
         },
         // 鼠标移出
         onMouseLeave() {
-            this.scheduledTaskId = setInterval(this.getNextBanner, 3000);
+            this.scheduledTaskId = setInterval(this.getNextBanner, this.timeout);
         }
     }
 });

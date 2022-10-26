@@ -7,7 +7,6 @@
     <title>Title</title>
     <!-- 当前页面样式 -->
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <script src="../../github/Web/swiperdemo/js/index.js"></script>
 </head>
 <body>
     <!-- 主体 -->
@@ -24,12 +23,12 @@
 
             <!-- 信息轮播展示 -->
             <div class="img-framework" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
-                <img src="images/background/bg_02.png">
+                <img src="img/background/bg_02.png">
                 <div class="prev" @click="getPrevBanner">
-                    <img src="images/button/btn_prev.png">
+                    <img src="img/button/btn_prev.png">
                 </div>
                 <div class="next" @click="getNextBanner">
-                    <img src="images/button/btn_next.png">
+                    <img src="img/button/btn_next.png">
                 </div>
                 <div class="current">
                     <img :src = "contentArray[activeTabIndex].bannerList[bannerIndex].image" >
@@ -39,7 +38,7 @@
     </div>
 
     <!-- 公用js -->
-    <script src="js/public/vue.js"></script>
+    <script src="common/js/vue.js"></script>
 
     <!-- 当前页面js -->
     <script src="js/index.js"></script>
