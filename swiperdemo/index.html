@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <!-- 布局窗口宽度等于视觉窗口宽度 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
     <title>Title</title>
+
+    <!-- 三方库样式 -->
+    <link rel="stylesheet" type="text/css" href="common/css/swiper.min.css" />
     <!-- 当前页面样式 -->
     <link rel="stylesheet" type="text/css" href="css/index.css" />
 </head>
@@ -17,7 +21,7 @@
                 <div class="tab"
                      v-for="(item, index) in tabArray"
                      :class="item.active ? 'active' : 'inactive'"
-                     @click="activeTab(index)">{{item.name}}
+                     @click="activateTab(index)">{{item.name}}
                 </div>
             </div>
 
@@ -34,12 +38,42 @@
                     <img :src = "contentArray[activeTabIndex].bannerList[bannerIndex].image" >
                 </div>
             </div>
+
+            <!-- 使用swiper插件实现的轮播 -->
+            <div class="swiper-framework">
+                <img src="img/background/bg_03.jpg" />
+
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="img/banner/banner_07.png">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/banner/banner_08.png">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/banner/banner_09.png">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/banner/banner_10.png">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="img/banner/banner_11.png">
+                        </div>
+                    </div>
+                    <!-- 导航按钮 -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <!-- 分页器 -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- 公用js -->
-    <script src="common/js/vue.js"></script>
-
+    <!-- 三方库js -->
+    <script src="common/js/vue.min.js"></script>
+    <script src="common/js/swiper.min.js"></script>
     <!-- 当前页面js -->
     <script src="js/index.js"></script>
 </body>

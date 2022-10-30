@@ -48,14 +48,16 @@ const vue = new Vue({
         ],
         bannerIndex: 0,
         scheduledTaskId: "",
-        timeout: 3000
+        timeout: 3000,
+        slidesPerView: 3
     },
     mounted() {
-        this.activeTab(0);
+        this.activateTab(0);
+        this.initSwiper();
     },
     methods: {
         // 激活tab
-        activeTab(index) {
+        activateTab(index) {
             this.bannerIndex = 0;
             this.tabArray[this.activeTabIndex].active = false;
             this.tabArray[index].active = true;
@@ -89,6 +91,34 @@ const vue = new Vue({
         // 鼠标移出
         onMouseLeave() {
             this.scheduledTaskId = setInterval(this.getNextBanner, this.timeout);
+        },
+        // 初始化swiper
+        initSwiper() {
+            const swiper = new Swiper(
+                ".swiper-container",
+                {
+                    slidesPerView: this.slidesPerView,
+                    loop: true,
+                    centeredSlides: true,
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: ".swiper-button-next",
+                        prevEl: ".swiper-button-prev",
+                    },
+                    autoplay: {
+                        delay: this.timeout
+                    }
+                }
+            );
+            swiper.el.onmouseenter = function () {
+                swiper.autoplay.stop();
+            };
+            swiper.el.onmouseleave = function () {
+                swiper.autoplay.start();
+            };
         }
     }
 });

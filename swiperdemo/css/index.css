@@ -1,3 +1,12 @@
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+[v-cloak] {
+    display: none;
+}
+
 .adapter {
     position: relative;
 }
@@ -7,6 +16,11 @@
         transform: translateX(-50%);
         width: 150%;
     }
+}
+
+img {
+    display: block;
+    width: 100%;
 }
 
 .tab-framework {
@@ -35,13 +49,13 @@
     }
 }
 .tab-framework .tab.active {
-    background: url(../img/tab/tab_activated.png) no-repeat center;
+    background: url(../img/tab/tab_active.png) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
 }
 .tab-framework .tab.inactive {
-    background: url(../img/tab/tab_inactivated.png) no-repeat center;
+    background: url(../img/tab/tab_inactive.png) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -52,9 +66,7 @@
 }
 .img-framework img {
     position: relative;
-    display: block;
     z-index: 2;
-    width: 100%;
 }
 .img-framework .prev {
     position: absolute;
@@ -88,7 +100,74 @@
     margin: auto;
     width: 100%;
 }
-.img-framework .current img {
-    width: 100%;
-    object-fit:cover;
+
+.swiper-framework {
+    position: relative;
+}
+.swiper-framework .swiper-container {
+    position: absolute;
+    top: 0.5vw;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10vw 0;
+    width: 62%;
+}
+@media screen and (max-width: 750px) {
+    .swiper-framework .swiper-container {
+        top: 4vw;
+        padding: 0;
+        width: 100%;
+    }
+}
+.swiper-framework .swiper-container .swiper-wrapper .swiper-slide {
+    transition: transform 0.4s;
+    opacity: 0.7;
+}
+@media screen and (max-width: 750px) {
+    .swiper-framework .swiper-container .swiper-wrapper .swiper-slide {
+        transform: scale(1);
+    }
+}
+.swiper-framework .swiper-container .swiper-wrapper .swiper-slide-active {
+    position: relative;
+    z-index: 10;
+    transform: scale(2);
+    opacity: 1;
+}
+@media screen and (max-width: 750px) {
+    .swiper-framework .swiper-container .swiper-wrapper .swiper-slide-active {
+        transform: scale(1);
+    }
+}
+.swiper-framework .swiper-container .swiper-button-prev:after{
+    display: none;
+}
+.swiper-framework .swiper-container .swiper-button-next:after{
+    display: none;
+}
+.swiper-framework .swiper-container .swiper-button-prev {
+    left: 40px;
+    background: url("../img/button/btn_prev.png") no-repeat center;
+    background-size: 100% 100%;
+}
+@media screen and (max-width: 750px) {
+    .swiper-framework .swiper-container .swiper-button-prev {
+        left: 6vw;
+    }
+}
+.swiper-framework .swiper-container .swiper-button-next {
+    right: 40px;
+    background: url("../img/button/btn_next.png") no-repeat center;
+    background-size: 100% 100%;
+}
+@media screen and (max-width: 750px) {
+    .swiper-framework .swiper-container .swiper-button-next {
+        right: 6vw;
+    }
+}
+.swiper-framework .swiper-container .swiper-pagination .swiper-pagination-bullet {
+    background-color: #ffffff;
+}
+.swiper-framework .swiper-container .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: #007aff;
 }
