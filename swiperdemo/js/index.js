@@ -3,11 +3,11 @@ const vue = new Vue({
     data: {
         tabArray: [ // tab标签
             {
-                name: "SUV",
+                name: "自然风光",
                 active: false
             },
             {
-                name: "轿车",
+                name: "植物",
                 active: false
             }
         ],
@@ -16,32 +16,32 @@ const vue = new Vue({
             {
                 bannerList: [
                     {
-                        name: "全新探岳",
-                        image: "img/banner/banner_01.png"
+                        name: "自然风光1",
+                        image: "img/banner/banner_01.jpg"
                     },
                     {
-                        name: "全新探岳X",
-                        image: "img/banner/banner_02.png"
+                        name: "自然风光2",
+                        image: "img/banner/banner_02.jpg"
                     },
                     {
-                        name: "全新探岳GTE",
-                        image: "img/banner/banner_03.png"
+                        name: "自然风光3",
+                        image: "img/banner/banner_03.jpg"
                     }
                 ]
             },
             {
                 bannerList: [
                     {
-                        name: "全新速腾",
-                        image: "img/banner/banner_04.png"
+                        name: "植物1",
+                        image: "img/banner/banner_04.jpg"
                     },
                     {
-                        name: "全新宝来",
-                        image: "img/banner/banner_05.png"
+                        name: "植物2",
+                        image: "img/banner/banner_05.jpg"
                     },
                     {
-                        name: "全新数字高尔夫",
-                        image: "img/banner/banner_06.png"
+                        name: "植物3",
+                        image: "img/banner/banner_06.jpg"
                     }
                 ]
             }
